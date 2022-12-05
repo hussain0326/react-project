@@ -6,3 +6,5 @@ node/
 *.log
 .evn
 .eslintignore
+../.DS_Store
+.DS_Store

@@ -54,17 +54,17 @@ class Login1 extends Component {
     };
 
     // checking user information with backend
-    localStorage.setItem("sessionId", JSON.stringify(obj));
 
-    // axios.post('http://192.168.31.238:8080/api/v1/sessions/create',obj)
-    //   .then(response => {
-    //   setUserSession(response.data.sessionId);
-    //   toast.success(JSON.stringify(response.data))
-    //   window.location.href ="./"
-    //   })
-    //   .catch (error => {
-    //     toast.error(JSON.stringify(error.response.data))
-    //   })
+    axios
+      .post(API_URL + "/api/v1/sessions/create", obj)
+      .then((response) => {
+        setUserSession(response.data.sessionId);
+        toast.success(JSON.stringify(response.data));
+        window.location.href = "./";
+      })
+      .catch((error) => {
+        toast.error(JSON.stringify(error.response.data));
+      });
   };
 
   render() {
