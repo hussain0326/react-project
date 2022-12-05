@@ -112,7 +112,7 @@ class Home extends Component {
     };
     console.log(obj2);
     axios
-      .post("http://192.168.31.238:8080/api/v1/sensordata/submit", obj2)
+      .post(BASE_URL + "/api/v1/sensordata/submit", obj2)
 
       .then((response) => {
         console.log(response.data);

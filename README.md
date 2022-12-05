@@ -1,19 +1,19 @@
 # Getting Started with Create React App
 
-This is a class react project which it was designed for a car portal. Material-UI was used for the UI and styling.
+This was a class react project which it was designed for a car portal. Material-UI was used for the UI and styling.
 
 ## Running the project
 
 In the project directory, you can run:
 
-Install all the dependencies :
+Install the dependencies:
 
 ### `npm install`
 
-Then run project:
+Run the Project:
 
 ### `npm start`
 
-## Running the test
+Run the Test:
 
 ### `npm test`
