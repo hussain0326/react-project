@@ -1,10 +1,12 @@
 node_modules/
+/node_modules
 node/
 /.pnp
 .pnp.js
 .DS_Store
 *.log
 .evn
+.classpath
 .eslintignore
 ../.DS_Store
 .DS_Store

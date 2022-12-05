@@ -6,6 +6,12 @@ This is a class react project which it was designed for a car portal. Material-U
 
 In the project directory, you can run:
 
+Install all the dependencies :
+
+### `npm install`
+
+Then run project:
+
 ### `npm start`
 
 ## Running the test
