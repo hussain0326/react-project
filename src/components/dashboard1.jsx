@@ -5,24 +5,20 @@ import StandOrt from "./standort";
 import History from "./history";
 import Login1 from "./login1";
 import Home from "./Home";
-import Profile from"./profile";
+import Profile from "./profile";
 import Status from "./status";
-import { setUserSession1 } from '../Utils/Common';
-import { setUserSession2 } from '../Utils/Common';
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import { deepOrange, deepPurple,deepWhite } from '@mui/material/colors';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import * as Icon from 'react-bootstrap-icons';
-import { Navbar, Nav, Container,NavDropdown } from 'react-bootstrap';
-import {  Route, Link } from "react-router-dom";
-import { withRouter,Redirect,Switch} from "react-router";
+import { setUserSession1 } from "../Utils/Common";
+import { setUserSession2 } from "../Utils/Common";
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
+import { deepOrange, deepPurple, deepWhite } from "@mui/material/colors";
+import "bootstrap/dist/css/bootstrap.min.css";
+import * as Icon from "react-bootstrap-icons";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Route, Link } from "react-router-dom";
+import { withRouter, Redirect, Switch } from "react-router";
 import axios from "axios";
-import {toast} from 'react-toastify';
-import CarInfo from'./carinfo';
-;
-
-
+import { toast } from "react-toastify";
 class Dashboard1 extends Component {
   constructor(props) {
     super(props);
@@ -34,41 +30,37 @@ class Dashboard1 extends Component {
 
   //Logout Function
   signOut = () => {
-   sessionStorage.removeItem("sessionId");
+    sessionStorage.removeItem("sessionId");
 
     this.setState({
       islogout: true,
     });
-  
   };
 
-  // Fetching Data from Backend 
-   componentDidMount()
-  {
-     const id2 = JSON.parse(sessionStorage.getItem("sessionId"));
-     const obj1 = {
-       sessionId:id2
-       }
-       axios.post('http://192.168.31.238:8080/api/v1/users/info',obj1)
-       .then(response => {
-         setUserSession1(response.data.userData);
-         })
-         .catch (error => { 
-           toast.error(JSON.stringify(error.response.data.userData))
-         })
+  // Fetching Data from Backend
+  componentDidMount() {
+    const id2 = JSON.parse(sessionStorage.getItem("sessionId"));
+    const obj1 = {
+      sessionId: id2,
+    };
+    axios
+      .post(BASE_URL + "/api/v1/users/info", obj1)
+      .then((response) => {
+        setUserSession1(response.data.userData);
+      })
+      .catch((error) => {
+        toast.error(JSON.stringify(error.response.data.userData));
+      });
 
-       axios.post('http://192.168.31.238:8080/api/v1/vehicles/list',obj1)
-       .then(response => {
-         setUserSession2(response.data.vehicles);
-         })
-         .catch (error => { 
-           toast.error(JSON.stringify(error.response.data.vehicles))
-         })
-
-        
-
-        
-   }
+    axios
+      .post(BASE_URL + "api/v1/vehicles/list", obj1)
+      .then((response) => {
+        setUserSession2(response.data.vehicles);
+      })
+      .catch((error) => {
+        toast.error(JSON.stringify(error.response.data.vehicles));
+      });
+  }
 
   render() {
     // Getting user information from session storage
@@ -159,28 +151,28 @@ class Dashboard1 extends Component {
             </div>
           </div>
         </nav>
-            <Switch>
-              <Route path={`${match.path}/login1`}>
-                <Login1 />
-              </Route>
-            
-              <Route path={`${match.path}/standort`}>
-                <StandOrt/>
-              </Route>
-              <Route path={`${match.path}/Home`}>
-                <Home/>
-              </Route>
-              <Route path={`${match.path}/history`}>
-                <History/>
-              </Route>
-              <Route path={`${match.path}/profile`}>
-                <Profile/>
-              </Route>
-              <Route path={`${match.path}/status`}>
-                <Status/>
-              </Route>
-            </Switch>
-        <Footer/>
+        <Switch>
+          <Route path={`${match.path}/login1`}>
+            <Login1 />
+          </Route>
+
+          <Route path={`${match.path}/standort`}>
+            <StandOrt />
+          </Route>
+          <Route path={`${match.path}/Home`}>
+            <Home />
+          </Route>
+          <Route path={`${match.path}/history`}>
+            <History />
+          </Route>
+          <Route path={`${match.path}/profile`}>
+            <Profile />
+          </Route>
+          <Route path={`${match.path}/status`}>
+            <Status />
+          </Route>
+        </Switch>
+        <Footer />
       </div>
     );
   }
