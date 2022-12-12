@@ -1,6 +1,6 @@
 # Project Description
 
-This was a class react project which it was designed for a car portal. Material-UI was used for the UI and styling.
+This project was a class react project which it was designed for a car portal. Material-UI and Bootstrap was used for the UI and styling.
 
 ## Running the project
 
