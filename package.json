@@ -35,7 +35,7 @@
   "scripts": {
     "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
-    "test": "DISABLE_ESLINT_PLUGIN=true react-scripts test",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -69,5 +69,6 @@
     "chai": "^4.3.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6"
-  }
+  }, 
+  "setupFilesAfterEnv":["./setupTest.js"]
 }
